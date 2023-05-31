@@ -15,6 +15,9 @@ namespace RestAPIaspnet.Controllers
             _logger = logger;
         }
 
+        #region gets
+
+
         [HttpGet("soma/{firstNumber}/{secondNumber}")]
         public IActionResult Soma(string firstNumber, string secondNumber)
         {
@@ -62,11 +65,12 @@ namespace RestAPIaspnet.Controllers
 
             return BadRequest("entrada invalida");
         }
+
+        [HttpGet("raiz/{firstNumber}/{secondNumber}")]
         public IActionResult Raiz(string firstNumber, string secondNumber)
         {
             if (IsNumeric(firstNumber) && IsNumeric(firstNumber))
             {
-
                 var raiz =  Math.Pow(ConverToDecimal(firstNumber), ConverToDecimal(secondNumber,true));
                 return Ok(raiz.ToString());
             }
@@ -74,6 +78,22 @@ namespace RestAPIaspnet.Controllers
             return BadRequest("entrada invalida");
         }
 
+        [HttpGet("media/{firstNumber}/{secondNumber}")]
+        public IActionResult Media(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(firstNumber))
+            {
+                var media = (ConverToDecimal(firstNumber)+ ConverToDecimal(secondNumber)) / 2;
+                return Ok(media.ToString());
+            }
+
+            return BadRequest("entrada invalida");
+        }
+
+        #endregion
+
+
+        #region metodosAux
         private double ConverToDecimal(string strNumber,bool fraciona=false)
         {
             double decimalValue;
@@ -94,5 +114,7 @@ namespace RestAPIaspnet.Controllers
             bool isNumber = double.TryParse(strNumber,System.Globalization.NumberStyles.Any , System.Globalization.NumberFormatInfo.InvariantInfo ,out number);
             return isNumber;
         }
+
+        #endregion
     }
 }

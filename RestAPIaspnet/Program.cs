@@ -1,4 +1,7 @@
 
+using RestAPIaspnet.Services;
+using RestAPIaspnet.Services.Interfaces;
+
 namespace RestAPIaspnet
 {
     public class Program
@@ -10,9 +13,14 @@ namespace RestAPIaspnet
             // Add services to the container.
 
             builder.Services.AddControllers();
+
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //injecao de dependencia 
+            builder.Services.AddScoped<IPessoaService, PessoaService>();
 
             var app = builder.Build();
 
