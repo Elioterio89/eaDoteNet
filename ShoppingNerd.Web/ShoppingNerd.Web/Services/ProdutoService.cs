@@ -58,6 +58,7 @@ namespace ShoppingNerd.Web.Services
             {
                 throw new Exception("Algo deu errado na chamada da API");
             }
+
         }
 
         public async Task<bool> Excluir(long pId)
