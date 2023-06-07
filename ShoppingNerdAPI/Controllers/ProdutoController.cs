@@ -15,7 +15,7 @@ namespace ShoppingNerdAPI.Controllers
 
         public ProdutoController(IProdutoRepository pProdutoRepository)
         {
-            _produtoRepository  = pProdutoRepository ?? throw new ArgumentNullException(nameof(pProdutoRepository));
+            _produtoRepository = pProdutoRepository ?? throw new ArgumentNullException(nameof(pProdutoRepository));
         }
 
         [HttpGet]
@@ -29,11 +29,11 @@ namespace ShoppingNerdAPI.Controllers
             return Ok(lProduto);
         }
 
-        [HttpGet("{pId}")] 
-        public async Task<ActionResult<ProdutoVO>> BuscaProdutoPorId(long pId) 
+        [HttpGet("{pId}")]
+        public async Task<ActionResult<ProdutoVO>> BuscaProdutoPorId(long pId)
         {
             var oProduto = await _produtoRepository.BuscaPorId(pId);
-            if(oProduto.Id <= null )
+            if (oProduto.Id <= null)
             {
                 return NotFound();
             }
@@ -54,7 +54,7 @@ namespace ShoppingNerdAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<ProdutoVO>> CriarProduto([FromBody] ProdutoVO pProdutoVO)
         {
-            if(pProdutoVO == null)
+            if (pProdutoVO == null)
             {
                 return BadRequest();
             }
@@ -73,11 +73,11 @@ namespace ShoppingNerdAPI.Controllers
             return Ok(oProduto);
         }
 
-        [HttpDelete]
+        [HttpDelete("{pId}")]
         public async Task<ActionResult<ProdutoVO>> ExcluirProduto(long pId)
         {
             var vStatus = await _produtoRepository.Excluir(pId);
-            if(!vStatus)
+            if (!vStatus)
             {
                 return BadRequest();
             }

@@ -5,12 +5,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
-var app = builder.Build();
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient<IProdutoService, ProdutoService>(
     p => p.BaseAddress = new Uri(builder.Configuration.GetConnectionString("ServicesUrls:ShoppingNerdAPI")));
-builder.Services.AddControllersWithViews();
+
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
