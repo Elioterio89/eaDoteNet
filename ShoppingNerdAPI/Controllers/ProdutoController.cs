@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingNerdAPI.Data.ValueObjects;
 using ShoppingNerdAPI.Model.Base;
 using ShoppingNerdAPI.Repository.Interfaces;
+using ShoppingNerdAPI.Utils;
 
 namespace ShoppingNerdAPI.Controllers
 {
@@ -19,6 +21,7 @@ namespace ShoppingNerdAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ProdutoVO>>> BuscaProdutos()
         {
             var lProduto = await _produtoRepository.BuscaTodos();
@@ -30,6 +33,7 @@ namespace ShoppingNerdAPI.Controllers
         }
 
         [HttpGet("{pId}")]
+        [Authorize]
         public async Task<ActionResult<ProdutoVO>> BuscaProdutoPorId(long pId)
         {
             var oProduto = await _produtoRepository.BuscaPorId(pId);
@@ -41,6 +45,7 @@ namespace ShoppingNerdAPI.Controllers
         }
 
         [HttpGet("nome/{pNome}")]
+        [Authorize]
         public async Task<ActionResult<ProdutoVO>> BuscaProdutoPorNome(string pNome)
         {
             var oProduto = await _produtoRepository.BuscaPorNome(pNome);
@@ -52,6 +57,7 @@ namespace ShoppingNerdAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<ProdutoVO>> CriarProduto([FromBody] ProdutoVO pProdutoVO)
         {
             if (pProdutoVO == null)
@@ -63,6 +69,7 @@ namespace ShoppingNerdAPI.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<ActionResult<ProdutoVO>> EditarProduto([FromBody] ProdutoVO pProdutoVO)
         {
             if (pProdutoVO == null)
@@ -74,6 +81,7 @@ namespace ShoppingNerdAPI.Controllers
         }
 
         [HttpDelete("{pId}")]
+        [Authorize(Roles = Role.Adimn)]
         public async Task<ActionResult<ProdutoVO>> ExcluirProduto(long pId)
         {
             var vStatus = await _produtoRepository.Excluir(pId);

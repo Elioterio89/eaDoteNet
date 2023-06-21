@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingNerd.Web", "Shoppin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NerdShopping", "NerdShopping", "{1390339F-F312-4266-95D9-3FE1D3BD2289}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdShopping", "..\NerdShopping\NerdShopping.csproj", "{ED1FA2EB-BAE3-45D3-B270-DCFD15948CE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NerdShopping", "..\NerdShopping\NerdShopping.csproj", "{ED1FA2EB-BAE3-45D3-B270-DCFD15948CE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdShopping.IdentityServer", "NerdShopping.IdentityServer\NerdShopping.IdentityServer.csproj", "{A29D9AD8-7AF4-4BEC-8880-757E21B4F485}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{ED1FA2EB-BAE3-45D3-B270-DCFD15948CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED1FA2EB-BAE3-45D3-B270-DCFD15948CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED1FA2EB-BAE3-45D3-B270-DCFD15948CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A29D9AD8-7AF4-4BEC-8880-757E21B4F485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29D9AD8-7AF4-4BEC-8880-757E21B4F485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29D9AD8-7AF4-4BEC-8880-757E21B4F485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29D9AD8-7AF4-4BEC-8880-757E21B4F485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{CC5F7A44-E7EA-40AF-93E8-8543DDCB49E7} = {10D86B27-3060-46B2-ABF8-5585FE87633A}
 		{85BA36CA-282F-4A8B-AB2A-F02944C11529} = {BC88754B-A9B3-430D-9445-DB1B3E5878F2}
 		{ED1FA2EB-BAE3-45D3-B270-DCFD15948CE3} = {1390339F-F312-4266-95D9-3FE1D3BD2289}
+		{A29D9AD8-7AF4-4BEC-8880-757E21B4F485} = {10D86B27-3060-46B2-ABF8-5585FE87633A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28E18C5A-D58C-4AB0-B6C2-18A7CD53095C}
